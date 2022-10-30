@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
 
-class VerifyEmailScreen extends StatelessWidget {
-  const VerifyEmailScreen({super.key});
+class SuccessScreen extends StatelessWidget {
+  const SuccessScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,32 +39,28 @@ class VerifyEmailScreen extends StatelessWidget {
             height: 150,
           ),
           Container(
+            height: 40,
             padding: const EdgeInsets.all(40),
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/ellipse.png"),
-                fit: BoxFit.cover,
+                image: AssetImage("assets/vector.png"),
               ),
-            ),
-            child: const Icon(
-              Icons.email_outlined,
-              color: Colors.white,
-              size: 70,
             ),
           ),
           const Text(
-            "Verify your email",
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            "Congratulations",
+            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
           ),
           const SizedBox(
             height: 10,
           ),
           const Text(
-            "We have successfully submitted your\n request for the tour of Green Garden\n Aparment. You’ll be updated soon.",
-            style: TextStyle(fontSize: 18, color: Colors.grey),
+            "Your Account Created\n Successfully",
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 22, color: Colors.black),
           ),
           const SizedBox(
-            height: 150,
+            height: 280,
           ),
           InkWell(
             onTap: () {
@@ -76,8 +74,8 @@ class VerifyEmailScreen extends StatelessWidget {
                   size: 40,
                 ),
                 Text(
-                  'Back to Signup',
-                  style: TextStyle(fontSize: 25),
+                  'Back to Login',
+                  style: TextStyle(fontSize: 20),
                 ),
               ],
             ),

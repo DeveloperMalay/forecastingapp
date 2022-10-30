@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:forecastingapp/views/login/login_screen.dart';
+import 'package:forecastingapp/views/emailresetpassword/email_reset_password.dart';
 import 'package:forecastingapp/views/success/success_screen.dart';
-import 'package:forecastingapp/views/verifyemail/verify_email_screen.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
-  @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
-}
-
-class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,8 +57,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15))),
           ),
-          const SizedBox(
-            height: 30,
+          Row(
+            children: [
+              Checkbox(value: false, onChanged: (value) {}),
+              const Text('Remember me'),
+            ],
           ),
           InkWell(
             onTap: () {
@@ -100,62 +97,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
           const SizedBox(
             height: 30,
           ),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: const [
-              Text(
-                'By registering you agree to the Forcasting.',
-                style: TextStyle(
-                  color: Colors.grey,
-                ),
-              ),
-              Text(
-                'Terms of Use',
-                style: TextStyle(
-                  fontSize: 12,
-                  shadows: [Shadow(color: Colors.black, offset: Offset(0, -2))],
-                  decorationThickness: 3,
-                  color: Colors.transparent,
-                  fontWeight: FontWeight.bold,
-                  decorationColor: Colors.black,
-                  decoration: TextDecoration.underline,
-                ),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text(
-                'and',
-                style: TextStyle(
-                  color: Colors.grey,
-                ),
-              ),
-              Text(
-                'Privacy Policy.',
-                style: TextStyle(
-                  fontSize: 12,
-                  shadows: [Shadow(color: Colors.black, offset: Offset(0, -2))],
-                  decorationThickness: 3,
-                  decorationColor: Colors.black,
-                  color: Colors.transparent,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.underline,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 200,
-          ),
           InkWell(
             onTap: () {
               Navigator.of(context).push(
                 PageRouteBuilder(
                   transitionDuration: const Duration(milliseconds: 500),
                   pageBuilder: (context, animation, secondaryAnimation) =>
-                      const LoginScreen(),
+                      const EmailResetPasswordScreen(),
+                  // const SuccessScreen(),
                   transitionsBuilder:
                       (context, animation, secondaryAnimation, child) {
                     return SlideTransition(
@@ -168,11 +117,26 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               );
             },
+            child: const Center(
+              child: Text(
+                'Forgot Password ?',
+                style:
+                    TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 200,
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
                 Text(
-                  'Already have an Account?',
+                  "Don't have an Account?",
                   style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.bold),
                 ),
@@ -180,7 +144,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   width: 5,
                 ),
                 Text(
-                  'Login',
+                  'Signup',
                   style: TextStyle(
                     shadows: [
                       Shadow(color: Colors.blue, offset: Offset(0, -3))
